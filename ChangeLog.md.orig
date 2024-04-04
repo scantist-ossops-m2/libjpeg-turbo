@@ -133,11 +133,6 @@ the header specified an image width of 1073741824 pixels, would trigger a
 floating point exception (division by zero) in the `tjLoadImage()` function
 when attempting to load the BMP file into a 4-component image buffer.
 
-8. Fixed out-of-bounds read in cjpeg that occurred when attempting to compress
-a specially-crafted malformed color-index (8-bit-per-sample) BMP file in which
-some of the samples (color indices) exceeded the bounds of the BMP file's color
-table.
-
 
 1.5.3
 =====
