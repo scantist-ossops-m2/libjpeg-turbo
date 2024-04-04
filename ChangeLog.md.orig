@@ -140,10 +140,6 @@ been reverted.
 15. The build system can now be used to generate a universal x86-64 + Armv8
 libjpeg-turbo SDK package for both iOS and macOS.
 
-4. Fixed a floating point exception that occurred when attempting to compress a
-specially-crafted malformed GIF image with a specified image width of 0 using
-cjpeg.
-
 
 2.0.6
 =====
