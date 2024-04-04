@@ -128,6 +128,11 @@ x86 and x86-64 platforms.  This speeds up the compression of full-color
 progressive JPEGs by about 85-90% on average (relative to libjpeg-turbo 1.5.x)
 when using modern Intel and AMD CPUs.
 
+4. Fixed an issue whereby a specially-crafted malformed BMP file, one in which
+the header specified an image width of 1073741824 pixels, would trigger a
+floating point exception (division by zero) in the `tjLoadImage()` function
+when attempting to load the BMP file into a 4-component image buffer.
+
 
 1.5.3
 =====
