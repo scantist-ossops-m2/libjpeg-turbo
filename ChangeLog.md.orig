@@ -27,10 +27,6 @@ file's color table.
 (a build in which `CFLAGS` contains `-static` and `ENABLE_SHARED` is `0`) would
 fail with "No valid ELF RPATH or RUNPATH entry exists in the file."
 
-2. Fixed an integer overflow and subsequent segfault (CVE-2018-20330) that
-occurred when attempting to load a BMP file with more than 1 billion pixels
-using the `tjLoadImage()` function.
-
 
 2.0.0
 =====
