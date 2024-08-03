@@ -68,6 +68,10 @@ the number of warmup iterations.
 the 32-bit x86 SIMD extensions with NASM versions prior to 2.04.  This was a
 regression introduced by 1.5 beta1[12].
 
+3. djpeg will now exit gracefully if an output image format other than PPM/PGM
+is selected along with the `-crop` option.  That option does not currently work
+with other output image formats.
+
 
 1.5.1
 =====
