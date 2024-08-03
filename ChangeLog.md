@@ -79,6 +79,11 @@ output format other than PPM/PGM, GIF, or Targa is selected along with the
 4. Fixed an issue whereby `jpeg_skip_scanlines()` would segfault if color
 quantization was enabled.
 
+8. Fixed out-of-bounds read in cjpeg that occurred when attempting to compress
+a specially-crafted malformed color-index (8-bit-per-sample) BMP file in which
+some of the samples (color indices) exceeded the bounds of the BMP file's color
+table.
+
 
 1.5.1
 =====
