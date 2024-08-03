@@ -50,10 +50,6 @@ one of the TurboJPEG compression or transform functions and an error
 subsequently occurred during compression or transformation, the JPEG buffer
 pointer passed by the application was not updated when the function returned.
 
-6. Fixed a regression introduced by 2.1 beta1[5] that caused a segfault in the
-64-bit SSE2 Huffman encoder when attempting to losslessly transform a
-specially-crafted malformed JPEG image.
-
 
 2.0.90 (2.1 beta1)
 ==================
