@@ -140,6 +140,20 @@ been reverted.
 15. The build system can now be used to generate a universal x86-64 + Armv8
 libjpeg-turbo SDK package for both iOS and macOS.
 
+4. Fixed a floating point exception that occurred when attempting to compress a
+specially-crafted malformed GIF image with a specified image width of 0 using
+cjpeg.
+
+7. The PPM reader now throws an error, rather than segfaulting (due to a buffer
+overrun) or generating incorrect pixels, if an application attempts to use the
+`tjLoadImage()` function to load a 16-bit binary PPM file (a binary PPM file
+with a maximum value greater than 255) into a grayscale image buffer or to load
+a 16-bit binary PGM file into an RGB image buffer.
+
+8. Fixed an issue in the PPM reader that caused incorrect pixels to be
+generated when using the `tjLoadImage()` function to load a 16-bit binary PPM
+file into an extended RGB image buffer.
+
 
 2.0.6
 =====
