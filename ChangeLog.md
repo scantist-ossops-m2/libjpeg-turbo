@@ -41,6 +41,11 @@ end of a single-scan (non-progressive) image, subsequent calls to
 JPEG images that were compressed with a sampling factor other than 1 (for
 instance, with `cjpeg -grayscale -sample 2x2`).
 
+8. Fixed out-of-bounds read in cjpeg that occurred when attempting to compress
+a specially-crafted malformed color-index (8-bit-per-sample) BMP file in which
+some of the samples (color indices) exceeded the bounds of the BMP file's color
+table.
+
 
 1.5.2
 =====
