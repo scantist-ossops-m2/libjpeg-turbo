@@ -41,6 +41,11 @@ end of a single-scan (non-progressive) image, subsequent calls to
 JPEG images that were compressed with a sampling factor other than 1 (for
 instance, with `cjpeg -grayscale -sample 2x2`).
 
+8. Fixed out-of-bounds read in cjpeg that occurred when attempting to compress
+a specially-crafted malformed color-index (8-bit-per-sample) BMP file in which
+some of the samples (color indices) exceeded the bounds of the BMP file's color
+table.
+
 
 1.5.2
 =====
@@ -111,6 +116,12 @@ the number of warmup iterations.
 11. Fixed an error (`short jump is out of range`) that occurred when assembling
 the 32-bit x86 SIMD extensions with NASM versions prior to 2.04.  This was a
 regression introduced by 1.5 beta1[12].
+
+19. Fixed an issue in the PPM reader that caused a buffer overrun in cjpeg,
+TJBench, or the `tjLoadImage()` function if one of the values in a binary
+PPM/PGM input file exceeded the maximum value defined in the file's header and
+that maximum value was less than 255.  libjpeg-turbo 1.5.0 already included a
+similar fix for binary PPM/PGM files with maximum values greater than 255.
 
 
 1.5.1
@@ -220,10 +231,10 @@ application was linked against.
 
 3. Fixed a couple of issues in the PPM reader that would cause buffer overruns
 in cjpeg if one of the values in a binary PPM/PGM input file exceeded the
-maximum value defined in the file's header.  libjpeg-turbo 1.4.2 already
-included a similar fix for ASCII PPM/PGM files.  Note that these issues were
-not security bugs, since they were confined to the cjpeg program and did not
-affect any of the libjpeg-turbo libraries.
+maximum value defined in the file's header and that maximum value was greater
+than 255.  libjpeg-turbo 1.4.2 already included a similar fix for ASCII PPM/PGM
+files.  Note that these issues were not security bugs, since they were confined
+to the cjpeg program and did not affect any of the libjpeg-turbo libraries.
 
 4. Fixed an issue whereby attempting to decompress a JPEG file with a corrupt
 header using the `tjDecompressToYUV2()` function would cause the function to
