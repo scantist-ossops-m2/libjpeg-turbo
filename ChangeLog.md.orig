@@ -37,6 +37,10 @@ incorrect PPM images when used with the `-colors` option.
 8. Fixed a severe performance issue in the Loongson MMI SIMD extensions that
 occurred when compressing RGB images whose image rows were not 64-bit-aligned.
 
+2. Fixed a signed integer overflow and subsequent segfault that occurred when
+attempting to decompress images with more than 715827882 pixels using the
+64-bit C version of TJBench.
+
 
 2.0.1
 =====
